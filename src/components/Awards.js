@@ -110,7 +110,10 @@ const Wrapper = styled.div`
 	max-width:1200px;
     display: flex;
     justify-content: space-between;
-    align-items: center;    
+    align-items: center; 
+    @media all and (max-width: 980px) {
+       flex-wrap: wrap;
+    }   
 `;
 const BorderDiv = styled.div`
     padding:1px;
@@ -126,6 +129,17 @@ const BorderDiv = styled.div`
             color: #fff;
         }
     }
+    @media all and (max-width: 980px) {
+       width: 45%;
+       &:nth-child(1),:nth-child(2) {
+           margin-bottom: 20px;
+       }
+    }
+    @media all and (max-width: 640px) {
+      width: 80%;
+      margin: 20px auto;
+    }
+    
 `;
 const ContentDiv = styled.div`
     width: 100%;
@@ -137,6 +151,7 @@ const ContentDiv = styled.div`
         background: linear-gradient(to right, #fa5200 0%, #b9488e 100%);
         transition: ease-in .5s;
     }
+     
 `;
 const Top = styled.div`
     display: flex;

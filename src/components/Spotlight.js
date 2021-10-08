@@ -32,26 +32,41 @@ const MainContainer = styled.div`
     align-items: flex-start;
     padding-left: 105px;
     padding-right: 45px;
+    @media all and (max-width: 980px) {
+       flex-direction: column;
+       margin-bottom: 253px;
+    } 
+    @media all and (max-width: 640px) {
+      padding-left: 50px;
+    } 
+    @media all and (max-width: 480px) {
+        margin-bottom: 120px;
+    } 
 `;
-// const Wrapper = styled.div`
-//      width: 83%;
-// 	margin: 0 auto;
-// 	max-width:1200px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: flex-start;
-// `;
 const LeftContainer = styled.div`
     padding-left: 4px;
     padding-top: 52px;
     width: 50%;
     font-family: "Gordita-medium";
+    @media all and (max-width: 980px) {
+       width: 80%;
+    } 
+    @media all and (max-width: 640px) {
+       width: 100%
+    } 
+    @media all and (max-width: 480px) {
+        padding-left: 0;
+        padding-top: 0;
+    } 
 `;
 const Heading = styled.h1`
     color: #fff;
     line-height: 1.3em;
     font-size: 45px;
     margin-bottom: 20px;
+    @media all and (max-width: 640px) {
+        font-size: 28px;
+    }
 `;
 const ColorSpan = styled.span`
     color: #D45945;
@@ -64,6 +79,9 @@ const SubHeading = styled.h3`
     font-weight: normal;
     width: 70%;
     margin-bottom: 35px;
+    @media all and (max-width: 640px) {
+      width: 100%;
+    } 
 `;
 const Button = styled.button`
     padding: 12px 30px;
@@ -83,12 +101,26 @@ const RightContainer = styled.div`
     padding-right: 16px;
     width: 50%;
     position: relative;
+    @media all and (max-width: 980px) {
+       width: 80%;
+    } 
+    @media all and (max-width: 640px) {
+       width: 100%
+    } 
 `;
 const ImageContainer1 = styled.div`
     position: absolute;
     width: 85%;
     top: -10px;
     left: 90px;
+    @media all and (max-width: 640px) {
+        width: 100%;
+        left: 20px;
+    } 
+    @media all and (max-width: 480px) {
+        left: 16px;
+        top: 18px;
+    } 
 `;
 const Image1 = styled.img`
     width: 100%;
@@ -100,6 +132,10 @@ const ImageContainer2 = styled.div`
     position: absolute;
     bottom: -390px;
     left: 40px;
+    @media all and (max-width: 480px) {
+        bottom: -180px;
+        left: -5px;
+    } 
 `;
 const Image2 = styled.img`
     width: 100%;
@@ -113,6 +149,9 @@ const ImageContainer3 = styled.div`
     position: absolute;
     right: 60px;
     top: 30px;
+    @media all and (max-width: 480px) {
+        right: 8px;
+    } 
 `;
 const Image3 = styled.img`
     width: 100%;

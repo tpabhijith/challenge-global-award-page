@@ -13,7 +13,7 @@ function Footer() {
                             </ImageContainer>
                         </ListItem>
                         <ListItem>
-                            Apartment 0031 Broadmoor Ln, Rotonda West Wood,<br /> FL, 33947
+                            Apartment 0031 Broadmoor Ln,<br /> Rotonda West Wood,<br /> FL, 33947
                         </ListItem>
                     </ListItems>
                 </LeftContainer>
@@ -51,9 +51,16 @@ const Wraper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media all and (max-width: 980px) {
+        flex-direction: column;
+    }
 `;
 const LeftContainer = styled.div`
     width: 50%;
+    @media all and (max-width: 980px) {
+       width: 100%;
+       margin-bottom: 40px;
+    }
 `;
 const ListItems = styled.ul`
     display: flex;
@@ -70,9 +77,17 @@ const ListItem = styled.li`
     &:nth-child(2) {
         width: 50%;
     }
+    @media all and (max-width: 640px) {
+      &:nth-child(2) {
+          width: 60%;
+      }
+    }
 `;
 const ImageContainer = styled.div`
     width: 70%;
+    @media all and (max-width: 980px) {
+        width: 100%;
+    }
 `;
 const FooterLogo = styled.img`
     display: block;
@@ -80,11 +95,19 @@ const FooterLogo = styled.img`
 `;
 const RightContainer = styled.div`
     width: 70%;
+    @media all and (max-width: 980px) {
+        width: 90%;
+    }
 `;
 const List = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    @media all and (max-width: 640px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 `;
 const Item = styled.li`
     font-size: 13px;
@@ -104,12 +127,15 @@ const Item = styled.li`
         display: inline-block;
         border-left: 2px solid  #5B5A5D;
         margin-left: 30px;
-
     }
     &:last-child:hover {
         color: #5B5A5D;
         
     }
+    @media all and (max-width: 640px) {
+      &:nth-child(4)::after {
+          display: none;
+      }
 `;
 const ColorSpan = styled.span`
     color:  #D45945;

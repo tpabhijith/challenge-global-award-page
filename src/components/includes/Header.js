@@ -1,9 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components"
 
 function Header() {
+    const [open, setOpen] = useState(false);
     return (
        <MainContainer>
+           <SlideMenu>
+               <UList>
+                   <List>Home</List>
+                   <List>About Us</List>
+                   <List>Awards</List>
+                   <List>Contact Us</List>
+               </UList>
+            </SlideMenu>
+
            <Wrapper>
                 <LeftContainer>
                     <ImageContainer>
@@ -11,6 +21,9 @@ function Header() {
                     </ImageContainer>
                 </LeftContainer>
                 <RightContainer>
+                    <HamburgerLogo open={open} onClick={()=> setOpen(!open)}>
+                        <Hamburger src={require("../../assets/images/menu.svg").default} alt="Hamburger Menu" />
+                    </HamburgerLogo>
                     <Navbar>
                         <NavItem>
                                 Home  
@@ -35,7 +48,43 @@ function Header() {
        </MainContainer>
     )
 }
-
+const SlideMenu = styled.div`
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    display: ${({open})=> open ? `block`: `none`};
+`;
+const UList = styled.ul``;
+const List = styled.li`
+    color: #5B5A5D ;
+    font-size: 18px;
+    margin-bottom: 20px;
+    &:hover {
+        color: #fff;
+    }
+`;
+const HamburgerLogo = styled.div`
+    /* background: #fff; */
+    background: ${({open}) => open ? '#fff' : 'linear-gradient(to right, #fa5200 0%, #b9488e 100%)'};
+    width: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    right: 60px;
+    top: 47px;
+    display: none;
+    @media all and (max-width: 980px) {
+       display: block;
+    } 
+    @media all and (max-width: 480px) {
+        right: 30px;
+    }
+`;
+const Hamburger = styled.img`
+    filter: grayscale(0);
+    display: block;
+    width: 100%;
+`;
 const MainContainer = styled.div``;
 const Wrapper = styled.div`
     width: 83%;
@@ -47,23 +96,29 @@ const Wrapper = styled.div`
 `;
 const LeftContainer = styled.div`
     width: 50%;
-    padding: 40px 4px;
+    padding: 40px 4px; 
 `;
 const ImageContainer = styled.div`
-    width: 187px;
+    width: 190px;
 `;
 const LogoImage = styled.img`
     width: 100%;
     display: block;
+    &:hover {
+        cursor: pointer;
+    }
 `;
 const RightContainer = styled.div`
-    width: 50%;
+    width: 80%;
     padding-right: 16px;
 `;
 const Navbar = styled.ul`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    @media all and (max-width: 980px) {
+       display: none;
+    } 
 `;
 const NavItem = styled.li`
     font-size: 13px;
