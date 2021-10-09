@@ -1,29 +1,21 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from "styled-components"
 
-function Header() {
-    const [open, setOpen] = useState(false);
+function Header({toggle, isOpen}) {
     return (
+        <>
+    
        <MainContainer>
-           <SlideMenu>
-               <UList>
-                   <List>Home</List>
-                   <List>About Us</List>
-                   <List>Awards</List>
-                   <List>Contact Us</List>
-               </UList>
-            </SlideMenu>
-
-           <Wrapper>
+            <Wrapper>
+                <HamburgerLogo onClick={toggle}>
+                    <Hamburger src={require("../../assets/images/menu.svg").default} alt="Hamburger Menu" />
+                </HamburgerLogo>
                 <LeftContainer>
                     <ImageContainer>
                         <LogoImage src={require("../../assets/images/logo.svg").default} alt="Logo Image" />
                     </ImageContainer>
                 </LeftContainer>
                 <RightContainer>
-                    <HamburgerLogo open={open} onClick={()=> setOpen(!open)}>
-                        <Hamburger src={require("../../assets/images/menu.svg").default} alt="Hamburger Menu" />
-                    </HamburgerLogo>
                     <Navbar>
                         <NavItem>
                                 Home  
@@ -46,35 +38,23 @@ function Header() {
                 </RightContainer>
             </Wrapper>
        </MainContainer>
+       </>
     )
 }
-const SlideMenu = styled.div`
-    position: absolute;
-    right: 40px;
-    top: 40px;
-    display: ${({open})=> open ? `block`: `none`};
-`;
-const UList = styled.ul``;
-const List = styled.li`
-    color: #5B5A5D ;
-    font-size: 18px;
-    margin-bottom: 20px;
-    &:hover {
-        color: #fff;
-    }
-`;
+
 const HamburgerLogo = styled.div`
-    /* background: #fff; */
-    background: ${({open}) => open ? '#fff' : 'linear-gradient(to right, #fa5200 0%, #b9488e 100%)'};
+    background: linear-gradient(to right, #fa5200 0%, #b9488e 100%);
     width: 30px;
-    padding: 5px;
+    padding: 8px 5px;
+    height: 30px;
     border-radius: 5px;
     position: absolute;
     right: 60px;
     top: 47px;
     display: none;
     @media all and (max-width: 980px) {
-       display: block;
+       /* display: block; */
+       display: ${(isOpen)=> isOpen ? 'block' : 'none'};
     } 
     @media all and (max-width: 480px) {
         right: 30px;
